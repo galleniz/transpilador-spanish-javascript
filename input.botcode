@@ -1,0 +1,28 @@
+define comando "ping"
+definir seccion "informacion"
+definir descripcion "Devuelve información de la latencia"
+
+inicio intentarCorrer
+    parametro mensaje
+    si mensaje.deBot()
+        devolver nada
+    fin
+    intentar
+        devolver correr(mensaje)
+    si falla
+        responder "Hubo un problema"
+    fin
+final
+
+inicio calcular
+    parametro a
+    parametro b
+    devolver a - b
+final
+
+inicio correr
+    parametro mensaje
+    variable a fecha.ahora()
+    variable b mensaje.fecha.tiempo()
+    responder calcular(a,b)
+final
